@@ -2,26 +2,24 @@ package com.example.sem08.viewModel
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.sem08.data.LugarDatabase
+import com.example.sem08.data.LugarDAO
 import com.example.sem08.model.Lugar
 import com.example.sem08.repository.LugarRepository
 import kotlinx.coroutines.launch
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
-    private val repository: LugarRepository
-    val obtenerLugares: LiveData<List<Lugar>>
+    private val repository: LugarRepository = LugarRepository(LugarDAO())
+    val obtenerLugares: MutableLiveData<List<Lugar>>
 
     init {
-        val lugarDAO = LugarDatabase.getDatabase(application).lugarDao()
-        repository = LugarRepository(lugarDAO)
         obtenerLugares = repository.obtenerLugares
     }
 
     fun guardarLugar(lugar: Lugar){
-        viewModelScope.launch { repository.guardarLugar(lugar) }
+        repository.guardarLugar(lugar)
     }
 
     fun eliminarLugar(lugar: Lugar){
-        viewModelScope.launch { repository.eliminarLugar(lugar) }
+        repository.eliminarLugar(lugar)
     }
 }
