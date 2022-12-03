@@ -30,4 +30,11 @@
 
     <string name="bt_update_lugar">Actualizar Lugar</string>
     <string name="bt_delete_lugar">Eliminar Lugar</string>
+
+    <string name="todo">TODO</string>
+    <string name="msg_imagen">Foto del Lugar</string>
+    <string name="msgEscucharAudio">Foto del Lugar</string>
+    <string name="msgInicioNotaAudio">Grabando</string>
+    <string name="msgDetieneNotaAudio">Dejar de Grabar</string>
+    <string name="msgSubiendo">Subiendo los Archivos</string>
 </resources>
